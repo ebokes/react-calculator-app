@@ -87,20 +87,23 @@ const Calculator = () => {
           <Previous>
             {previous} {operations}
           </Previous>
-          <Current>{current}</Current>
+          <Current>{current === "" && previous === "" ? "0" : current}</Current>
         </Screen>
         <Keypad>
-          <Button gridSpan={1} clear onClick={clearScreenHandler}>
+          <Button clear onClick={clearScreenHandler}>
             AC
           </Button>
           <Button onClick={deleteDigitHandler} del>
-            DEL
+            ⇐
           </Button>
-          <Button data={"-"} onClick={appendValueHandler}>
-            ±
-          </Button>
+          {/* <Button data={"0.01"} operation onClick={appendValueHandler}>
+            %
+          </Button> */}
           <Button data={"÷"} onClick={chooseOperationHandler} operation>
             ÷
+          </Button>
+          <Button data={"x"} operation onClick={chooseOperationHandler}>
+            x
           </Button>
           <Button data={7} onClick={appendValueHandler}>
             7
@@ -109,11 +112,10 @@ const Calculator = () => {
             8
           </Button>
           <Button data={9} onClick={appendValueHandler}>
-            {" "}
             9
           </Button>
-          <Button data={"x"} operation onClick={chooseOperationHandler}>
-            x
+          <Button data={"-"} operation onClick={chooseOperationHandler}>
+            -
           </Button>
           <Button data={4} onClick={appendValueHandler}>
             4
@@ -136,8 +138,8 @@ const Calculator = () => {
           <Button data={3} onClick={appendValueHandler}>
             3
           </Button>
-          <Button data={"-"} operation onClick={chooseOperationHandler}>
-            -
+          <Button equals onClick={equalHandler}>
+            =
           </Button>
           <Button data={"."} onClick={appendValueHandler} decimal>
             .
@@ -148,9 +150,6 @@ const Calculator = () => {
 
           <Button data={"00"} onClick={appendValueHandler}>
             00
-          </Button>
-          <Button equals onClick={equalHandler}>
-            =
           </Button>
         </Keypad>
       </Container>

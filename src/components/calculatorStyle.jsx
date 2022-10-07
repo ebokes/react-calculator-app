@@ -28,7 +28,7 @@ export const Screen = styled.div`
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  padding: 5px;
+  padding: 0 5px;
   box-shadow: -0.6rem -0.6rem 0.5rem -0.1rem #06070b;
   border-radius: 1rem;
   word-wrap: break-word;
@@ -55,7 +55,7 @@ export const Keypad = styled.div`
   grid-template-columns: repeat(4, 8rem);
   grid-template-rows: repeat(5, 8rem);
   column-gap: 0.8rem;
-  width: 100%;
+  /* width: 40rem; */
 `;
 
 export const Previous = styled.div`
@@ -76,7 +76,7 @@ export const Button = styled.button`
   cursor: pointer;
   border: none;
   background-color: #191a1f;
-  color: #586063;
+  color: #9aa9ae;
   box-shadow: 0.6rem 0.8rem 0.3rem 0.1rem #06070b;
   position: relative;
   position: relative;
@@ -108,12 +108,43 @@ export const Button = styled.button`
     transform: translate(-0.1rem, -0.1rem);
   }
 
-  ${({ operation }) => operation && `color:#ec904c;`};
+  ${({ operation }) =>
+    operation &&
+    `
+    color:#108b64; 
+    background-color:#212121;
+    font-size: 3rem; 
+    font-weight: 500;`}
+
   ${({ del }) =>
-    del && `background-color:#bd0f0f7e; font-size: 2.1rem; color:#ccc;`};
-  ${({ equals }) => equals && `background-color:#b46d3b;color:#000;`};
+    del &&
+    `
+    font-size: 2.1rem;
+    background-color:#108b64;
+    color:#fff; `};
+
+  ${({ equals }) =>
+    equals &&
+    `
+    background-color:#108b64;
+    color:#fff;
+    grid-row: 4/ span 2;
+    grid-column: 4;
+    height: 13.5rem;
+    `};
+
   ${({ clear }) =>
-    clear && `background-color:#bd0f0f7e; font-size: 2.3rem; color:#ccc;`};
+    clear &&
+    ` 
+    font-size: 2.3rem; 
+    background-color:#108b64;
+    color:#fff;`};
+
   ${({ decimal }) =>
-    decimal && `font-size: 3.5rem;color:#ec904c;padding-bottom: 3rem;`};
+    decimal &&
+    `font-size: 3.5rem;
+    color:#108b64;
+    padding-bottom: 3rem; 
+    font-size: 3rem; 
+    font-weight: 500;`};
 `;
