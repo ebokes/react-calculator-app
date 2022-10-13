@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Wrapper,
   Keypad,
@@ -7,9 +7,13 @@ import {
   Current,
   Button,
   Container,
+  CalcWrapper,
 } from "./calculatorStyle";
+import ReactSwitch from "react-switch";
+import { ThemeContext } from "./context/ThemeContext";
 
 const Calculator = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [current, setCurrent] = useState("");
   const [previous, setPrevious] = useState("");
   const [operations, setOperations] = useState("");
@@ -81,76 +85,86 @@ const Calculator = () => {
   };
 
   return (
-    <Wrapper>
-      <Container>
-        <Screen>
-          <Previous>
-            {previous} {operations}
-          </Previous>
-          <Current>{current === "" && previous === "" ? "0" : current}</Current>
-        </Screen>
-        <Keypad>
-          <Button clear onClick={clearScreenHandler}>
-            AC
-          </Button>
-          <Button onClick={deleteDigitHandler} del>
-            ⇐
-          </Button>
-          <Button data={"÷"} onClick={chooseOperationHandler} operation>
-            ÷
-          </Button>
-          <Button data={"x"} operation onClick={chooseOperationHandler}>
-            x
-          </Button>
-          <Button data={7} onClick={appendValueHandler}>
-            7
-          </Button>
-          <Button data={8} onClick={appendValueHandler}>
-            8
-          </Button>
-          <Button data={9} onClick={appendValueHandler}>
-            9
-          </Button>
-          <Button data={"-"} operation onClick={chooseOperationHandler}>
-            -
-          </Button>
-          <Button data={4} onClick={appendValueHandler}>
-            4
-          </Button>
-          <Button data={5} onClick={appendValueHandler}>
-            5
-          </Button>
-          <Button data={6} onClick={appendValueHandler}>
-            6
-          </Button>
-          <Button data={"+"} operation onClick={chooseOperationHandler}>
-            +
-          </Button>
-          <Button data={1} onClick={appendValueHandler}>
-            1
-          </Button>
-          <Button data={2} onClick={appendValueHandler}>
-            2
-          </Button>
-          <Button data={3} onClick={appendValueHandler}>
-            3
-          </Button>
-          <Button equals onClick={equalHandler}>
-            =
-          </Button>
-          <Button data={"."} onClick={appendValueHandler} decimal>
-            .
-          </Button>
-          <Button data={0} onClick={appendValueHandler}>
-            0
-          </Button>
+    // <CalcContainer>
+    <CalcWrapper id={theme}>
+      <Wrapper>
+        <Container>
+          <div className="switch">
+            <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+            <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+          </div>
+          <Screen>
+            <Previous>
+              {previous} {operations}
+            </Previous>
+            <Current>
+              {current === "" && previous === "" ? "0" : current}
+            </Current>
+          </Screen>
+          <Keypad>
+            <Button clear onClick={clearScreenHandler}>
+              AC
+            </Button>
+            <Button onClick={deleteDigitHandler} del>
+              ⇐
+            </Button>
+            <Button data={"÷"} onClick={chooseOperationHandler} operation>
+              ÷
+            </Button>
+            <Button data={"x"} operation onClick={chooseOperationHandler}>
+              x
+            </Button>
+            <Button data={7} onClick={appendValueHandler}>
+              7
+            </Button>
+            <Button data={8} onClick={appendValueHandler}>
+              8
+            </Button>
+            <Button data={9} onClick={appendValueHandler}>
+              9
+            </Button>
+            <Button data={"-"} operation onClick={chooseOperationHandler}>
+              -
+            </Button>
+            <Button data={4} onClick={appendValueHandler}>
+              4
+            </Button>
+            <Button data={5} onClick={appendValueHandler}>
+              5
+            </Button>
+            <Button data={6} onClick={appendValueHandler}>
+              6
+            </Button>
+            <Button data={"+"} operation onClick={chooseOperationHandler}>
+              +
+            </Button>
+            <Button data={1} onClick={appendValueHandler}>
+              1
+            </Button>
+            <Button data={2} onClick={appendValueHandler}>
+              2
+            </Button>
+            <Button data={3} onClick={appendValueHandler}>
+              3
+            </Button>
+            <Button equals onClick={equalHandler}>
+              =
+            </Button>
+            <Button data={"."} onClick={appendValueHandler} decimal>
+              .
+            </Button>
+            <Button data={0} onClick={appendValueHandler}>
+              0
+            </Button>
 
-          <Button data={"00"} onClick={appendValueHandler}>
-            00
-          </Button>
-        </Keypad>
-      </Container>
-    </Wrapper>
+            <Button data={"00"} onClick={appendValueHandler}>
+              00
+            </Button>
+          </Keypad>
+        </Container>
+      </Wrapper>
+      {/* // </CalcContainer> */}
+    </CalcWrapper>
   );
 };
 

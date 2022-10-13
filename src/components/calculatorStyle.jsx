@@ -1,5 +1,30 @@
 import styled from "styled-components";
 
+export const CalcContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  /* background-color: brown; */
+
+  #light {
+    background-color: green;
+  }
+  #dark {
+    background-color: wheat;
+  }
+`;
+export const CalcWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+`;
+
 export const Wrapper = styled.section`
   width: 40rem;
   margin: 15rem auto;
