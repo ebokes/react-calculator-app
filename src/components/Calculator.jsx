@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { ThemeContext } from "../App";
 import {
   Wrapper,
   Keypad,
@@ -9,11 +10,10 @@ import {
   Container,
   CalcWrapper,
 } from "./calculatorStyle";
-import ReactSwitch from "react-switch";
-import { ThemeContext } from "./context/ThemeContext";
+import Switch from "./Switch";
 
 const Calculator = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { toggleTheme, isDarkTheme } = useContext(ThemeContext);
   const [current, setCurrent] = useState("");
   const [previous, setPrevious] = useState("");
   const [operations, setOperations] = useState("");
@@ -86,13 +86,10 @@ const Calculator = () => {
 
   return (
     // <CalcContainer>
-    <CalcWrapper id={theme}>
+    <CalcWrapper>
       <Wrapper>
         <Container>
-          <div className="switch">
-            <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
-            <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
-          </div>
+          <Switch toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
           <Screen>
             <Previous>
               {previous} {operations}

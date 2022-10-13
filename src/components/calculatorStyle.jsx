@@ -1,21 +1,14 @@
 import styled from "styled-components";
 
-export const CalcContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  /* background-color: brown; */
-
-  #light {
-    background-color: green;
-  }
-  #dark {
-    background-color: wheat;
-  }
-`;
+// export const CalcContainer = styled.div`
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   overflow: hidden;
+//   background: ${({ theme }) => theme.body};
+// `;
 export const CalcWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -23,14 +16,16 @@ export const CalcWrapper = styled.div`
   right: 0;
   bottom: 0;
   overflow: hidden;
+  background: ${({ theme }) => theme.body};
+  /* background: ${({ theme }) => theme.body}; */
 `;
 
 export const Wrapper = styled.section`
   width: 40rem;
   margin: 15rem auto;
-  background: #1b1c22;
+  background: ${({ theme }) => theme.body};
   border-radius: 4rem;
-  box-shadow: 0.6rem 0.9rem 0.5rem 0.3rem #06070b;
+  box-shadow: 0.6rem 0.9rem 0.5rem 0.3rem ${({ theme }) => theme.shadow};
   position: relative;
 
   &::before {
@@ -39,7 +34,7 @@ export const Wrapper = styled.section`
     width: 100%;
     height: 100%;
     border-radius: 4rem;
-    box-shadow: -0.5rem -0.6rem 0.5rem 0rem #ffffff1f;
+    box-shadow: -0.5rem -0.6rem 0.5rem 0rem ${({ theme }) => theme.shadowb};
   }
 `;
 export const Container = styled.div`
@@ -49,12 +44,12 @@ export const Container = styled.div`
 export const Screen = styled.div`
   height: 12rem;
   margin: 3rem;
-  color: #fff;
+  color: ${({ theme }) => theme.white};
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   padding: 0 5px;
-  box-shadow: -0.6rem -0.6rem 0.5rem -0.1rem #06070b;
+  box-shadow: -0.6rem -0.6rem 0.5rem -0.1rem ${({ theme }) => theme.shadow};
   border-radius: 1rem;
   word-wrap: break-word;
   word-break: break-all;
@@ -67,7 +62,7 @@ export const Screen = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 2rem;
-    box-shadow: 0.5rem 0.5rem 0.6rem -0.2rem #ffffff1f;
+    box-shadow: 0.5rem 0.5rem 0.6rem -0.2rem ${({ theme }) => theme.screenBefore};
   }
 `;
 
@@ -83,12 +78,12 @@ export const Keypad = styled.div`
 `;
 
 export const Previous = styled.div`
-  color: rgba(255, 255, 255, 0.8);
+  color: ${({ theme }) => theme.previous};
   font-size: 2rem;
 `;
 
 export const Current = styled.div`
-  color: #fff;
+  color: ${({ theme }) => theme.white};
   font-size: 3rem;
 `;
 
@@ -99,9 +94,9 @@ export const Button = styled.button`
   font-size: 2.5rem;
   cursor: pointer;
   border: none;
-  background-color: #191a1f;
-  color: #9aa9ae;
-  box-shadow: 0.6rem 0.8rem 0.3rem 0.1rem #06070b;
+  background-color: ${({ theme }) => theme.btnBackground};
+  color: ${({ theme }) => theme.btnTextColor};
+  box-shadow: 0.6rem 0.8rem 0.3rem 0.1rem ${({ theme }) => theme.btnBoxShadow};
   position: relative;
   position: relative;
   transition: 0.2s all;
@@ -116,14 +111,15 @@ export const Button = styled.button`
     width: 100%;
     height: 100%;
     border-radius: 1rem;
-    box-shadow: -0.3rem -0.3rem 0.6rem -0.2rem #ffffff1f;
+    box-shadow: -0.3rem -0.3rem 0.6rem -0.2rem
+      ${({ theme }) => theme.btnBoxShadowbefore};
     top: 0;
     right: 0;
     transition: 0.2s all;
   }
 
   &:active {
-    box-shadow: 0.1rem 0.1rem 0.5rem -0.1rem #06070b;
+    box-shadow: 0.1rem 0.1rem 0.5rem -0.1rem ${({ theme }) => theme.shadow};
     transform: translate(0.1rem, 0.1rem);
   }
 
@@ -131,7 +127,7 @@ export const Button = styled.button`
     operation &&
     `
     color:#108b64; 
-    background-color:#212121;
+    background-color:${({ theme }) => theme.operation};
     font-size: 3rem; 
     font-weight: 500;`}
 
