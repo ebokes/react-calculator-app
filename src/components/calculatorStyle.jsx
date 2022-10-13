@@ -55,7 +55,6 @@ export const Keypad = styled.div`
   grid-template-columns: repeat(4, 8rem);
   grid-template-rows: repeat(5, 8rem);
   column-gap: 0.8rem;
-  /* width: 40rem; */
 `;
 
 export const Previous = styled.div`

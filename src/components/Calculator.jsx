@@ -96,9 +96,6 @@ const Calculator = () => {
           <Button onClick={deleteDigitHandler} del>
             ⇐
           </Button>
-          {/* <Button data={"0.01"} operation onClick={appendValueHandler}>
-            %
-          </Button> */}
           <Button data={"÷"} onClick={chooseOperationHandler} operation>
             ÷
           </Button>
