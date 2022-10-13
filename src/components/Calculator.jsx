@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { ThemeContext } from "../App";
+import React, { useState } from "react";
 import {
   Wrapper,
   Keypad,
@@ -10,34 +9,33 @@ import {
   Container,
   CalcWrapper,
 } from "./calculatorStyle";
-import Switch from "./Switch";
+import RSwitch from "./Switch";
 
 const Calculator = () => {
-  const { toggleTheme, isDarkTheme } = useContext(ThemeContext);
   const [current, setCurrent] = useState("");
   const [previous, setPrevious] = useState("");
   const [operations, setOperations] = useState("");
 
-  // func to display text on screen when a user clicks
+  // function to display text on screen when a user clicks
   const appendValueHandler = (e) => {
     const value = e.target.getAttribute("data");
     if (value === "." && current.includes(".")) return;
     setCurrent(current + value);
   };
 
-  //   func to delete text
+  //   function to delete text
   const deleteDigitHandler = () => {
     setCurrent(String(current).slice(0, -1));
   };
 
-  //   to clear screen
+  //   clear screen
   const clearScreenHandler = () => {
     setCurrent("");
     setOperations("");
     setPrevious("");
   };
 
-  //   to choose an operator
+  //   choose required operator
   const chooseOperationHandler = (e) => {
     if (current === "") return;
     if (previous !== "") {
@@ -50,7 +48,7 @@ const Calculator = () => {
     setOperations(e.target.getAttribute("data"));
   };
 
-  //   equal to func
+  //   equal to function
   const equalHandler = () => {
     let value = compute();
     if (value === undefined || value == null) return;
@@ -59,7 +57,7 @@ const Calculator = () => {
     setOperations("");
   };
 
-  //   to evaluate result
+  //   result evaluation
   const compute = () => {
     let result;
     let previousNumber = parseFloat(previous);
@@ -85,11 +83,10 @@ const Calculator = () => {
   };
 
   return (
-    // <CalcContainer>
     <CalcWrapper>
       <Wrapper>
         <Container>
-          <Switch toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
+          <RSwitch />
           <Screen>
             <Previous>
               {previous} {operations}
@@ -160,7 +157,6 @@ const Calculator = () => {
           </Keypad>
         </Container>
       </Wrapper>
-      {/* // </CalcContainer> */}
     </CalcWrapper>
   );
 };

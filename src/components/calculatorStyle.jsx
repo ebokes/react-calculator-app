@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-// export const CalcContainer = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   overflow: hidden;
-//   background: ${({ theme }) => theme.body};
-// `;
 export const CalcWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -17,12 +8,11 @@ export const CalcWrapper = styled.div`
   bottom: 0;
   overflow: hidden;
   background: ${({ theme }) => theme.body};
-  /* background: ${({ theme }) => theme.body}; */
 `;
 
 export const Wrapper = styled.section`
   width: 40rem;
-  margin: 15rem auto;
+  margin: 10rem auto 0 auto;
   background: ${({ theme }) => theme.body};
   border-radius: 4rem;
   box-shadow: 0.6rem 0.9rem 0.5rem 0.3rem ${({ theme }) => theme.shadow};
@@ -37,13 +27,14 @@ export const Wrapper = styled.section`
     box-shadow: -0.5rem -0.6rem 0.5rem 0rem ${({ theme }) => theme.shadowb};
   }
 `;
+
 export const Container = styled.div`
   padding-top: 0.5rem;
 `;
 
 export const Screen = styled.div`
   height: 12rem;
-  margin: 3rem;
+  margin: 2rem 3rem 3rem 3rem;
   color: ${({ theme }) => theme.white};
   display: flex;
   justify-content: space-around;
@@ -162,4 +153,11 @@ export const Button = styled.button`
     padding-bottom: 3rem; 
     font-size: 3rem; 
     font-weight: 500;`};
+`;
+
+export const SwitchContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 3rem 0 0;
 `;

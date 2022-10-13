@@ -1,7 +1,6 @@
 import { createContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import Calculator from "./components/Calculator";
-// import { CalcContainer } from "./components/calculatorStyle";
 
 export const ThemeContext = createContext();
 
