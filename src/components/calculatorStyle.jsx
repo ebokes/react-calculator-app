@@ -92,20 +92,15 @@ export const Button = styled.button`
     width: 100%;
     height: 100%;
     border-radius: 1rem;
-    box-shadow: -0.5rem -0.5rem 0.6rem -0.2rem #ffffff1f;
+    box-shadow: -0.3rem -0.3rem 0.6rem -0.2rem #ffffff1f;
     top: 0;
     right: 0;
     transition: 0.2s all;
-
-    &:active {
-      box-shadow: 0.1rem 0.1rem 0.5rem -0.1rem #06070b;
-      transform: translate(-0.1rem, -0.1rem);
-    }
   }
 
   &:active {
     box-shadow: 0.1rem 0.1rem 0.5rem -0.1rem #06070b;
-    transform: translate(-0.1rem, -0.1rem);
+    transform: translate(0.1rem, 0.1rem);
   }
 
   ${({ operation }) =>
